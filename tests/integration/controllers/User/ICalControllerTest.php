@@ -2,13 +2,11 @@
 
 use App\BusinessToken;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Timegridio\Concierge\Models\Appointment;
 
 class ICalControllerTest extends TestCase
 {
     use DatabaseTransactions;
-    use WithoutMiddleware;
     use CreateUser, CreateBusiness, CreateContact, CreateAppointment;
 
     /**
@@ -37,7 +35,7 @@ class ICalControllerTest extends TestCase
 
         $token = $businessToken->generate();
 
-        $this->call('get', route('api.business.ical.download', [$this->business, $token]));
+        $this->call('get', route('business.ical.download', ['business' => $this->business, 'token' => $token]));
 
         $this->see('BEGIN:VCALENDAR');
         $this->see("PRODID:{$this->business->slug}");
@@ -50,7 +48,7 @@ class ICalControllerTest extends TestCase
     {
         $this->arrangeBusinessWithOwner();
 
-        $this->call('get', route('api.business.ical.download', [$this->business, 'invalid']));
+        $this->call('get', route('business.ical.download', [$this->business, 'invalid']));
 
         $this->assertResponseStatus(403);
     }

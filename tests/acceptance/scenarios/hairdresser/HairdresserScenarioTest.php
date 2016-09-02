@@ -14,9 +14,6 @@ class HairdresserScenarioTest extends TestCase
 
     protected $vacancy;
     
-    // protected $service;
-
-
     /**
      * @test
      */
@@ -141,7 +138,6 @@ EOD;
     {
         $this->actingAs($this->issuer->fresh());
 
-        $this->withoutMiddleware();
         $this->call('POST', route('user.booking.store', ['business' => $this->business]), [
             'businessId' => $this->business->id,
             'service_id' => $this->business->services()->where('slug', 'hair-cut')->first()->id,
@@ -173,7 +169,6 @@ EOD;
 
         $this->business->contacts()->save($contact); 
 
-        $this->withoutMiddleware();
         $this->call('POST', route('user.booking.store', ['business' => $this->business]), [
             'businessId' => $this->business->id,
             'service_id' => $this->business->services()->where('slug', 'brushing')->first()->id,
@@ -194,7 +189,6 @@ EOD;
 
         $this->business->contacts()->save($contact); 
 
-        $this->withoutMiddleware();
         $this->call('POST', route('user.booking.store', ['business' => $this->business]), [
             'businessId' => $this->business->id,
             'service_id' => $this->business->services()->where('slug', 'washing')->first()->id,

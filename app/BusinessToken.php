@@ -15,6 +15,6 @@ class BusinessToken
 
     public function generate()
     {
-        return md5($this->business->slug.'>'.$this->business->created_at->timestamp);
+        return md5($this->business->slug.'>'.$this->business->id);
     }
 }

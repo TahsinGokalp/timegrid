@@ -82,7 +82,7 @@ class BusinessPolicy
      */
     public function manageContacts(User $user, Business $business)
     {
-        return $user->isOwner($business);
+        return $user->isOwner($business->id);
     }
 
     /**

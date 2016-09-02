@@ -24,7 +24,6 @@
         "anhskohbo/no-captcha": "2.*",
         "barryvdh/laravel-snappy": "~0.2",
         "bassjobsen/bootstrap-3-typeahead": "~4.0",
-        "caffeinated/widgets": "~2.0",
         "camroncade/timezone": "0.1",
         "creativeorange/gravatar": "~1.0",
         "fenos/notifynder": "3.*",
@@ -34,8 +33,7 @@
         "intervention/imagecache": "^2.2",
         "ipunkt/laravel-analytics": "~1.1",
         "laracasts/flash": "~2.0",
-        "laravel/framework": "5.2.*",
-        "laravel/socialite": "^2.0",
+        "laravel/framework": "5.3.*",
         "laravelcollective/html": "~5.0",
         "mccool/laravel-auto-presenter": "^4.0",
         "patricktalmadge/bootstrapper": "~5",
@@ -66,8 +64,7 @@
         "symfony/css-selector": "~3.0",
         "symfony/dom-crawler": "~3.0",
         "mockery/mockery": "0.9.*",
-        "potsky/laravel-localization-helpers": "2.3.3",
-        "tightenco/mailthief": "^0.2"
+        "tightenco/mailthief": "dev-master"
     },
     "autoload": {
         "classmap": [
@@ -77,7 +74,7 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Http/helpers.php"
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {

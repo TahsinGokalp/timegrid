@@ -2,12 +2,8 @@
 
 namespace App\Providers;
 
-use Timegridio\Concierge\Models\Appointment;
-use Timegridio\Concierge\Models\Business;
-use Timegridio\Concierge\Models\Contact;
-use Timegridio\Concierge\Models\Service;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,35 +19,59 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param \Illuminate\Routing\Router $router
-     *
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        //
-
-        parent::boot($router);
-
-        $router->model('contact', Contact::class);
-        $router->model('service', Service::class);
-        $router->model('appointment', Appointment::class);
-        $router->bind('business', function ($businessSlug) {
-            return Business::where('slug', $businessSlug)->first();
-        });
+        parent::boot();
     }
 
     /**
      * Define the routes for the application.
      *
-     * @param \Illuminate\Routing\Router $router
+     * @return void
+     */
+    public function map()
+    {
+        $this->mapApiRoutes();
+
+        $this->mapWebRoutes();
+
+        //
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
      *
      * @return void
      */
-    public function map(Router $router)
+    protected function mapWebRoutes()
     {
-        $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Http/routes.php');
+        Route::group([
+            'middleware' => 'web',
+            'namespace'  => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/web.php');
+        });
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+            'middleware' => 'api',
+            'namespace'  => $this->namespace.'\API',
+            'prefix'     => 'api',
+        ], function ($router) {
+            require base_path('routes/api.php');
         });
     }
 }
