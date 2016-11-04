@@ -25,7 +25,7 @@ class SyncICalTest extends TestCase
 
         $icalsync = Mockery::mock(ICalSyncService::class)->makePartial();
 
-        $icalsync->shouldReceive('sync')->once()->andReturn();
+        $icalsync->shouldReceive('sync')->andReturn();
 
         $testedCommand = $this->app->make(SyncICal::class, [$icalsync]);
         $testedCommand->setLaravel(app());
