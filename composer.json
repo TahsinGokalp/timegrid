@@ -21,6 +21,7 @@
     },
     "type": "project",
     "require": {
+        "php": "~5.6",
         "anhskohbo/no-captcha": "2.*",
         "barryvdh/laravel-snappy": "~0.2",
         "bassjobsen/bootstrap-3-typeahead": "~4.0",
@@ -51,11 +52,13 @@
         "jenssegers/rollbar": "^1.5",
         "eluceo/ical": "^0.10.1",
         "snowfire/beautymail": "dev-master",
-        "timegridio/icalreader": "dev-master"
+        "timegridio/icalreader": "dev-master",
+        "spatie/laravel-cookie-consent": "^1.2",
+        "geoip2/geoip2": "~2.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.0",
-        "caouecs/laravel4-lang": "~3.0",
+        "caouecs/laravel-lang": "~3.0",
         "codeclimate/php-test-reporter": "dev-master",
         "fzaninotto/faker": "~1.0",
         "laracasts/generators": "^1.1",

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5334723a9315d1061312a6b4e8668268",
-    "content-hash": "48cbeb645d856c9ad8cdf7a848a9caf5",
+    "hash": "229d330c496f3460edd33495c7da30b1",
+    "content-hash": "664bb054b11f4af1b5d883578912dab0",
     "packages": [
         {
             "name": "alariva/tidiochat",
@@ -3376,6 +3376,67 @@
             "time": "2016-02-12 11:59:46"
         },
         {
+            "name": "spatie/laravel-cookie-consent",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-cookie-consent.git",
+                "reference": "c97188f11c8b02e1239302d3fbb06cb8f36b33c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/c97188f11c8b02e1239302d3fbb06cb8f36b33c2",
+                "reference": "c97188f11c8b02e1239302d3fbb06cb8f36b33c2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cookie": "~5.1.0|~5.2.0|~5.3.0",
+                "illuminate/support": "~5.1.0|~5.2.0|~5.3.0",
+                "illuminate/view": "~5.1.0|~5.2.0|~5.3.0",
+                "php": "^5.6|^7.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "orchestra/testbench": "3.1",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CookieConsent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Willem Van Bockstal",
+                    "email": "willem@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make your Laravel app comply with the crazy EU cookie law",
+            "homepage": "https://github.com/spatie/laravel-cookie-consent",
+            "keywords": [
+                "comply",
+                "cookie",
+                "eu",
+                "laravel-cookie-consent",
+                "law",
+                "spatie"
+            ],
+            "time": "2016-10-30 17:57:52"
+        },
+        {
             "name": "stevebauman/location",
             "version": "v1.3.1",
             "source": {
@@ -4697,7 +4758,7 @@
             "time": "2016-09-15 14:05:56"
         },
         {
-            "name": "caouecs/laravel4-lang",
+            "name": "caouecs/laravel-lang",
             "version": "3.0.18",
             "source": {
                 "type": "git",
@@ -4734,7 +4795,6 @@
                 "laravel",
                 "lpm"
             ],
-            "abandoned": "caouecs/laravel-lang",
             "time": "2016-10-31 19:34:07"
         },
         {
@@ -6913,6 +6973,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "~5.6"
+    },
     "platform-dev": []
 }

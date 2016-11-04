@@ -179,6 +179,7 @@ return [
         Torann\GeoIP\GeoIPServiceProvider::class,
         Webpatser\Countries\CountriesServiceProvider::class,
         Snowfire\Beautymail\BeautymailServiceProvider::class,
+        Spatie\CookieConsent\CookieConsentServiceProvider::class,
 
         Alariva\Tidiochat\TidioChatServiceProvider::class,
         Timegridio\Concierge\TimegridioConciergeServiceProvider::class,
@@ -265,7 +266,7 @@ return [
         'Countries'  => Webpatser\Countries\CountriesFacade::class,
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'Flash'      => Laracasts\Flash\Flash::class,
-        'GeoIP'      => Torann\GeoIP\GeoIPFacade::class,
+        'GeoIP'      => Torann\GeoIP\Facades\GeoIP::class,
         'Gravatar'   => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'      => Intervention\Image\Facades\Image::class,
         //'Image'      => Barryvdh\Snappy\Facades\SnappyImage::class,

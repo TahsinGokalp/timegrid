@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\TG\Business;
 
 use Timegridio\Concierge\Models\Business;
 
-class BusinessToken
+class Token
 {
     private $business;
 
@@ -15,6 +15,6 @@ class BusinessToken
 
     public function generate()
     {
-        return md5($this->business->slug.'>'.$this->business->id);
+        return md5($this->business->slug.'>'.$this->business->created_at->timestamp);
     }
 }
