@@ -7,6 +7,7 @@ php:
 
 before_install:
   - sudo apt-get update
+  - sudo apt-get upgrade php-xdebug
 
 install:
   - composer self-update
@@ -23,12 +24,7 @@ before_script:
   - php artisan config:cache
 
 script:
-  - if hash phpdbg 2>/dev/null; then
-  -     phpenv config-rm xdebug.ini
-  -     phpdbg -qrr vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  - else
-  -     vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  - fi
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_success:
   - ./travis-codeclimate-report.sh
