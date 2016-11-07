@@ -7,13 +7,11 @@ php:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install php-phpdbg
 
 install:
   - composer self-update
 
 before_script:
-  - phpenv config-rm xdebug.ini
   - mv .env.travis .env
   - mv travis.phpunit.xml phpunit.xml
   - mysql -e 'create database test_timegrid;'
@@ -25,7 +23,12 @@ before_script:
   - php artisan config:cache
 
 script:
-  - phpdbg -qrr vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - if hash phpdbg 2>/dev/null; then
+  -     phpenv config-rm xdebug.ini
+  -     phpdbg -qrr vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - else
+  -     vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - fi
 
 after_success:
   - ./travis-codeclimate-report.sh
