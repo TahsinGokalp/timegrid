@@ -6,7 +6,7 @@ php:
 
 install:
   - composer self-update
-  - apt-get install php-phpdbg
+  - sudo apt-get install php-phpdbg
 
 before_script:
   - phpenv config-rm xdebug.ini
