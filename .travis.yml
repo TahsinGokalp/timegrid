@@ -8,6 +8,7 @@ install:
   - composer self-update
 
 before_script:
+  - phpenv config-rm xdebug.ini
   - mv .env.travis .env
   - mv travis.phpunit.xml phpunit.xml
   - mysql -e 'create database test_timegrid;'
@@ -17,6 +18,9 @@ before_script:
   - php artisan db:seed
   - php artisan geoip:update
   - php artisan config:cache
+
+script:
+  - phpdbg -qrr vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_success:
   - ./travis-codeclimate-report.sh
