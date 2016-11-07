@@ -7,7 +7,6 @@ php:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get upgrade php-xdebug
 
 install:
   - composer self-update
